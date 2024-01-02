@@ -4,10 +4,10 @@ A Clojure library for rule based event processing.
 
 # Documentation
 
-https://b-social.github.io/vent/
+https://logicblocks.github.io/vent/
 
 ## License
 
-Copyright © 2019 B-Social Ltd.
+Copyright © 2024 LogicBlocks Maintainers.
 
 Distributed under the MIT license.
