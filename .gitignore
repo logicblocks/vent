@@ -1,21 +1,42 @@
-# Build
-/target
-/classes
-/checkouts
-*.jar
-*.class
-
-# Tools
-pom.xml
-pom.xml.asc
-/.lein-*
-/.nrepl-port
+# vim
+*.swp
+*.swo
 
 # IntelliJ
-*.iml
+.idea/
 *.ipr
+*.iml
 *.iws
-.idea
 
+# Build
+vendor/
+build/
+dist/
+target/
+classes/
+checkouts/
+run/
+.bundle
+.rakeTasks
+.direnv
+
+# OS
+.DS_Store
+
+# Clojure
+profiles.clj
+.eastwood
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+.lein-*/
 lsp/
-.clj-kondo/
+.nrepl-port
+
+# Temporary
+run/pids/
+run/logs/
+*.log
+.tmp
+
