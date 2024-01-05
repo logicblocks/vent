@@ -78,7 +78,7 @@ namespace :keys do
         name_prefix: 'gpg',
         owner_name: 'LogicBlocks Maintainers',
         owner_email: 'maintainers@logicblocks.io',
-        owner_comment: 'halboy CI Key'
+        owner_comment: 'vent CI Key'
       )
     end
 
