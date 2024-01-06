@@ -13,7 +13,7 @@
   [f]
   (let [func (if (var? f) @f f)
         methods (->> func class .getDeclaredMethods
-                  (map #(vector (.getName %)
+                  (map #(vector (.getName ^Method %)
                           (count (.getParameterTypes ^Method %)))))
         var-args? (some #(-> % first #{"getRequiredArity"})
                     methods)]
@@ -32,7 +32,7 @@
   (let [highest-arity (highest-arity-of f)]
     (cond
       (= highest-arity :variadic) (apply f args)
-      (= highest-arity 0) (f)
+      (zero? highest-arity) (f)
       :else (apply f (take highest-arity args)))))
 
 (defn deep-merge

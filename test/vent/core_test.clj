@@ -1,29 +1,29 @@
 (ns vent.core-test
   (:require
-    [clojure.test :refer :all]
-    [clojure.string :as string]
+   [clojure.test :refer :all]
+   [clojure.string :as string]
 
-    [clj-fakes.core :as fakes]
+   [clj-fakes.core :as fakes]
 
-    [halboy.resource :as hal]
+   [halboy.resource :as hal]
 
-    [vent.test-support.data :as data]
+   [vent.test-support.data :as data]
 
-    [vent.core :as v]
-    [vent.hal :as vent-hal]
+   [vent.core :as v]
+   [vent.hal :as vent-hal]
 
-    [vent.test-support.actions.capturing-action
-     :refer [capture-as capturing-action]]
-    [vent.test-support.actions.fake-action
-     :refer [fake-action invoke-fake]]
-    [vent.test-support.gatherers.merging-gatherer
-     :refer [add-from-map merging-gatherer]]
-    [vent.test-support.gatherers.recording-gatherer
-     :refer [recording-gatherer]]
-    [vent.test-support.selectors.greater-than-selector
-     :refer [greater-than greater-than-selector]]
-    [vent.test-support.selectors.less-than-selector
-     :refer [less-than less-than-selector]]))
+   [vent.test-support.actions.capturing-action
+    :refer [capture-as capturing-action]]
+   [vent.test-support.actions.fake-action
+    :refer [fake-action invoke-fake]]
+   [vent.test-support.gatherers.merging-gatherer
+    :refer [add-from-map merging-gatherer]]
+   [vent.test-support.gatherers.recording-gatherer
+    :refer [recording-gatherer]]
+   [vent.test-support.selectors.greater-than-selector
+    :refer [greater-than greater-than-selector]]
+   [vent.test-support.selectors.less-than-selector
+    :refer [less-than less-than-selector]]))
 
 (deftest generates-action-when-event-matched
   (let [ruleset
@@ -207,7 +207,7 @@
           (v/from-channel :some-event-channel
             (v/on-complement-of
               (v/on-type :some-event-type
-                         (v/act (capture-as :some-action))))))
+                (v/act (capture-as :some-action))))))
 
         event-channel "some-event-channel"
         matching-event-payload
@@ -237,7 +237,7 @@
                                          :identifier :some-action
                                          :event matching-event
                                          :initial-context context)}])]
-           matching-plans))
+          matching-plans))
     (is (= [] non-matching-plans))))
 
 (deftest generates-action-when-on-types-complement-matched
@@ -246,7 +246,7 @@
           (v/from-channel :some-event-channel
             (v/on-complement-of
               (v/on-types [:some-event-type :some-other-event-type]
-                         (v/act (capture-as :some-action))))))
+                (v/act (capture-as :some-action))))))
 
         event-channel "some-event-channel"
         matching-event-payload
@@ -276,7 +276,7 @@
                                          :identifier :some-action
                                          :event matching-event
                                          :initial-context context)}])]
-           matching-plans))
+          matching-plans))
     (is (= [] non-matching-plans))))
 
 (deftest generates-action-when-on-complement-matched
@@ -285,7 +285,7 @@
           (v/from-channel :some-event-channel
             (v/on-complement-of
               (v/on :do-not-process
-                    (v/act (capture-as :some-action))))))
+                (v/act (capture-as :some-action))))))
 
         event-channel "some-event-channel"
         event-payload
@@ -313,7 +313,7 @@
                                          :identifier :some-action
                                          :event matching-event
                                          :initial-context context)}])]
-           matching-plans))
+          matching-plans))
     (is (= [] non-matching-plans))))
 
 (deftest correctly-determines-actions-when-many-event-channels-are-defined
@@ -534,7 +534,7 @@
                   (greater-than-selector
                     :event event
                     :initial-context context
-                    :key :amount
+                    :key-fn :amount
                     :value 50)
 
                   :plan
@@ -551,7 +551,7 @@
                   (less-than-selector
                     :event event
                     :initial-context context
-                    :key :amount
+                    :key-fn :amount
                     :value 50)
 
                   :plan

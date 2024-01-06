@@ -1,8 +1,8 @@
 (ns vent.hal-test
   (:require
-    [clojure.test :refer :all]
-    [vent.hal :refer [event-type-property]]
-    [halboy.resource :as hal]))
+   [clojure.test :refer :all]
+   [vent.hal :refer [event-type-property]]
+   [halboy.resource :as hal]))
 
 (defn- new-event [type]
   {:payload (hal/add-properties (hal/new-resource) {:type type})})

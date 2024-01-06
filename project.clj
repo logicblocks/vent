@@ -80,7 +80,8 @@
 
   :cljfmt {:indents ^:replace {#".*" [[:inner 0]]}}
 
-  :eastwood {:config-files ["config/linter.clj"]}
+  :eastwood {:exclude-linters [:def-in-def]
+             :config-files ["config/linter.clj"]}
 
   :bikeshed {:name-collisions false
              :long-lines      false}

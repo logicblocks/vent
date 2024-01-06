@@ -1,6 +1,6 @@
 (ns vent.test-support.gatherers.recording-gatherer
   (:require
-    [vent.core :as v]))
+   [vent.core :as v]))
 
 (defrecord RecordingGatherer [fake]
   v/Gatherer

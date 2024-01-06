@@ -1,18 +1,16 @@
 (ns vent.test-support.data
   (:require
-    [clojure.string :refer [join]]
-
-    [faker.lorem :as lorem])
+   [faker.lorem :as lorem])
   (:import
-    [java.util UUID]))
+   [java.util UUID]))
 
 (def url-template "https://%s.com/%s/%s")
 
-(defn random-uuid []
+(defn random-uuid-string []
   (str (UUID/randomUUID)))
 
 (defn random-url
-  ([] (random-url (random-uuid)))
+  ([] (random-url (random-uuid-string)))
   ([id]
    (let [words (take 2 (lorem/words))]
      (format url-template (first words) (last words) id))))
@@ -21,5 +19,6 @@
   ([] (random-payload {}))
   ([overrides]
    (merge
-     (into {} [[(random-uuid) (random-uuid)] [(random-uuid) (random-uuid)]])
+     (into {} [[(random-uuid-string) (random-uuid-string)]
+               [(random-uuid-string) (random-uuid-string)]])
      overrides)))

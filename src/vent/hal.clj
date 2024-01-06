@@ -1,10 +1,11 @@
 (ns vent.hal
   (:require
-    [halboy.resource :as hal]
-    [clojure.string :as string]))
+   [halboy.resource :as hal]
+   [clojure.string :as string]))
 
-(defn- single-word [property]
-  "Removes spaces from property and creates a single word joined by '-'"
+(defn- single-word
+  "Removes spaces from property and creates a single word joined by '-'."
+  [property]
   (if (string? property)
     (string/join "-" (string/split property #"(\s+)"))
     property))

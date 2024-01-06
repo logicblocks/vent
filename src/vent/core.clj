@@ -1,9 +1,9 @@
 (ns vent.core
   (:require
-    [medley.core :refer [find-first]]
-    [vent.util
-     :refer [invoke-highest-arity
-             deep-merge]]))
+   [medley.core :refer [find-first]]
+   [vent.util
+    :refer [invoke-highest-arity
+            deep-merge]]))
 
 (declare rule->plan)
 
@@ -99,7 +99,7 @@
      (create-ruleset ~@forms)))
 
 (defn create-plan [& {:keys [steps] :or {steps []}}]
-  {:steps (into [] steps)})
+  {:steps (vec steps)})
 
 (defn options [& {:as options}]
   {:options options})
@@ -124,7 +124,7 @@
 
 (defn on-types [event-types & handlers]
   {:rule-matching-fn (fn [event {:keys [event-type-fn]}]
-                       (let [event-types (into #{} event-types)]
+                       (let [event-types (set event-types)]
                          (event-types (event-type-fn event))))
    :handlers         handlers})
 

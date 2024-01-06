@@ -1,8 +1,8 @@
 (ns vent.util-test
   (:require
-    [clojure.test :refer :all]
+   [clojure.test :refer :all]
 
-    [vent.util :refer [highest-arity-of]]))
+   [vent.util :refer [highest-arity-of]]))
 
 ; Inspired by:
 ; https://stackoverflow.com/questions/1696693/clojure-how-to-find-out-the-arity-of-function-at-runtime
