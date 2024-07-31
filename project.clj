@@ -1,4 +1,4 @@
-(defproject io.logicblocks/vent "0.7.0-RC2"
+(defproject io.logicblocks/vent "0.7.0-RC3"
   :description "Rule based event processing engine."
   :url "https://github.com/logicblocks/vent"
 
